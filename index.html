@@ -45,11 +45,7 @@
       <!-- Hero -->
       <section class="hero">
         <div class="hero__container">
-          <img
-            class="hero__image"
-            src="./images/hero/hero.webp"
-            alt="Концерт гурту Грим та Грім"
-          />
+          
           <h1 class="hero__title">Гурт «Грим та Грім»</h1>
           <p class="hero__subtitle">
             Справжній український рок, який гуркоче в серці
@@ -64,10 +60,15 @@
             емщції. Приєднуйся до нас на найближчих виступах і відчуй цей саунд
             наживо!
           </p>
+          <button class="hero__button" type="button" data-modal-open>
+            Замовити квиток
+          </button>
+          <!-- <img
+            class="hero__image"
+            src="./images/hero/hero.webp"
+            alt="Концерт гурту Грим та Грім"
+          /> -->
         </div>
-        <button class="hero__button" type="button" data-modal-open>
-          Замовити квиток
-        </button>
       </section>
     </main>
 
@@ -88,7 +89,7 @@
           <b class="form__title">Залиште свої дані, ми вам передзвонимо</b>
           <div class="form__field">
             <label for="name" class="form__label">Ім'я та прізвище</label>
-            <input class="form__input" type="text" name="user-name" id="name" />
+            <input class="form__input" type="text" name="user-name" id="name" required/>
             <svg class="form__icon">
               <use href="./images/icon.svg#icon-user"></use>
             </svg>
@@ -101,6 +102,7 @@
               name="user-tel"
               id="tel"
               autocomplete="off"
+              required
             />
             <svg class="form__icon">
               <use href="./images/icon.svg#icon-phone"></use>
@@ -113,6 +115,7 @@
               type="email"
               name="user-email"
               id="email"
+              required
             />
             <svg class="form__icon">
               <use href="./images/icon.svg#icon-email"></use>
@@ -134,6 +137,6 @@
     </div>
 
     <script src="./js/script.js"></script>
-    <script src="./js/script.js"></script>
+    <script src="./js/modal.js"></script>
   </body>
 </html>

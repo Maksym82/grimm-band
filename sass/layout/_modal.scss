@@ -10,8 +10,7 @@
   background-color: rgba(0, 0, 0, 0.2);
   opacity: 1;
   background-color: $colorBackdrop;
-  transition: opacity 250ms linear, visibility 250ms linear,
-    transform 250ms linear;
+  transition: opacity 250ms linear, visibility 250ms linear, transform 250ms linear;
   overflow-y: scroll;
 
   &--hidden {
@@ -27,7 +26,7 @@
   max-width: 450px;
   width: 100%;
   transform: translateX(-50%);
-  background-color: var(--white-color);
+  background-color: $colorWhite;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
@@ -41,14 +40,14 @@
 
   @media screen and (min-width: 1200px) {
     max-width: 528px;
-    transform: translate(-50%, -50%) scale(1) rotateZ(360deg);
+    transform: translate(-50%, -50%) scale(1);
   }
 
   .backdrop--hidden & {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(0) rotateZ(0deg);
+    transform: translate(-50%, -50%) scale(0.8);
   }
 }
 
@@ -62,7 +61,7 @@
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
   display: flex;
-  transition-property: fill;
+  transition-property: stroke;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -72,11 +71,12 @@
     height: 18px;
     right: 50%;
     align-items: center;
+    stroke: $colorBlack;
     cursor: pointer;
 
     .close:hover &,
     .close:focus & {
-      fill: $colorYellow;
+      stroke: $colorBlue;
     }
   }
 }
@@ -120,6 +120,7 @@
     border: 1px solid rgba(33, 33, 33, 0.2);
     border-radius: 4px;
     padding-left: 42px;
+    color: $colorBlack;
     transition-property: border-color;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -130,7 +131,7 @@
 
     &:focus {
       outline: none;
-      border: 1px solid $colorGray;
+      border: 1px solid $colorBlue;
     }
   }
 
@@ -140,14 +141,15 @@
     left: 12px;
     width: 18px;
     height: 18px;
+    stroke: $colorWhite;
 
     &:focus {
       outline: none;
-      border: 1px solid $colorYellow;
+      border: 1px solid $colorBlue;
     }
 
     .form__input:focus + & {
-      fill: $colorYellow;
+      fill: $colorBlue;
     }
   }
 
@@ -179,7 +181,7 @@
 
     &:focus {
       outline: none;
-      border: 1px solid var(--accent-color);
+      border: 1px solid $colorGray;
     }
   }
 
@@ -193,8 +195,8 @@
     font-size: 16px;
     line-height: 1.88;
     letter-spacing: 0.06em;
-    color: var(--white-color);
-    background-color: $colorYellow;
+    color: $colorWhite;
+    background-color: $colorOrange;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     border: none;
     border-radius: 4px;
@@ -205,7 +207,7 @@
 
     &:hover,
     &:focus {
-      background: var(--button-active-blue);
+      background: $colorRed;
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     }
   }

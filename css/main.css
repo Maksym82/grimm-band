@@ -126,7 +126,7 @@ input {
 }
 
 [class*=__container] {
-  max-width: 1440px;
+  max-width: 1122px;
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -137,6 +137,7 @@ input {
   left: 0;
   width: 100%;
   z-index: 100;
+  background-color: #000000;
   padding: 0;
 }
 
@@ -266,6 +267,8 @@ input {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
+    background: -webkit-gradient(linear, left top, right top, from(#000000), color-stop(#2a2227), to(#161214));
+    background: linear-gradient(90deg, #000000, #2a2227, #161214);
     padding: 86px 15px 30px 15px;
     overflow: auto;
     -webkit-transition: left 0.3s linear;
@@ -278,7 +281,7 @@ input {
     position: fixed;
     top: 0;
     left: -100%;
-    height: 80px;
+    height: 66px;
     z-index: 2;
     -webkit-transition: left 0.3s linear;
     transition: left 0.3s linear;
@@ -305,34 +308,31 @@ input {
   }
 }
 .hero {
-  padding: 106px 0 24px 0;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 66px;
-  left: 0;
-  background-color: #000;
-  z-index: 2;
-  opacity: 0.4;
+  padding: 66px 0 0;
+  background-image: url("../images/hero/hero.webp");
+  background-repeat: no-repeat;
+  background-position-y: 100%;
+  background-size: cover;
+  -webkit-filter: grayscale(30%) brightness(0.9);
+          filter: grayscale(30%) brightness(0.9);
+  opacity: 0.8;
 }
 
 .hero__container {
   position: relative;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
-
-.hero__image {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  -o-object-fit: cover;
-     object-fit: cover;
-  z-index: -1;
+@media (min-width: 768px) {
+  .hero__container {
+    padding-bottom: 160px;
+  }
+}
+@media (min-width: 1000px) {
+  .hero__container {
+    padding-bottom: 160px;
+    padding-top: 100px;
+  }
 }
 
 .hero__title {
@@ -341,19 +341,48 @@ input {
   line-height: 1.25;
   margin-bottom: 16px;
 }
+@media (min-width: 768px) {
+  .hero__title {
+    margin-bottom: 24px;
+  }
+}
 
 .hero__subtitle {
   margin-bottom: 16px;
+}
+@media (min-width: 768px) {
+  .hero__subtitle {
+    margin-bottom: 24px;
+  }
 }
 
 .hero__text {
   font-size: 14px;
   margin-bottom: 16px;
 }
+@media (min-width: 768px) {
+  .hero__text {
+    margin-bottom: 24px;
+  }
+}
 
 .hero__text span {
   color: #52cdff;
   font-weight: 700;
+}
+
+.hero__button {
+  position: relative;
+  z-index: 3;
+  width: 170px;
+  height: 40px;
+  font-weight: 500;
+  background-color: #ffa500;
+  text-transform: uppercase;
+  color: #ffffff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
 }
 
 .backdrop {
@@ -365,7 +394,7 @@ input {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
   opacity: 1;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.6);
   -webkit-transition: opacity 250ms linear, visibility 250ms linear, -webkit-transform 250ms linear;
   transition: opacity 250ms linear, visibility 250ms linear, -webkit-transform 250ms linear;
   transition: opacity 250ms linear, visibility 250ms linear, transform 250ms linear;
@@ -385,7 +414,7 @@ input {
   width: 100%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  background-color: var(--white-color);
+  background-color: #ffffff;
   -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
           box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
@@ -404,16 +433,16 @@ input {
 @media screen and (min-width: 1200px) {
   .modal {
     max-width: 528px;
-    -webkit-transform: translate(-50%, -50%) scale(1) rotateZ(360deg);
-            transform: translate(-50%, -50%) scale(1) rotateZ(360deg);
+    -webkit-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1);
   }
 }
 .backdrop--hidden .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%) scale(0) rotateZ(0deg);
-          transform: translate(-50%, -50%) scale(0) rotateZ(0deg);
+  -webkit-transform: translate(-50%, -50%) scale(0.8);
+          transform: translate(-50%, -50%) scale(0.8);
 }
 
 .close {
@@ -428,8 +457,8 @@ input {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-transition-property: fill;
-  transition-property: fill;
+  -webkit-transition-property: stroke;
+  transition-property: stroke;
   -webkit-transition-duration: 250ms;
           transition-duration: 250ms;
   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -443,10 +472,11 @@ input {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  stroke: #000000;
   cursor: pointer;
 }
 .close:hover .close__icon, .close:focus .close__icon {
-  fill: #ffff00;
+  stroke: #52cdff;
 }
 
 .form {
@@ -491,6 +521,7 @@ input {
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
   padding-left: 42px;
+  color: #000000;
   -webkit-transition-property: border-color;
   transition-property: border-color;
   -webkit-transition-duration: 250ms;
@@ -503,7 +534,7 @@ input {
 }
 .form__input:focus {
   outline: none;
-  border: 1px solid #808080;
+  border: 1px solid #52cdff;
 }
 .form__icon {
   position: absolute;
@@ -511,13 +542,14 @@ input {
   left: 12px;
   width: 18px;
   height: 18px;
+  stroke: #ffffff;
 }
 .form__icon:focus {
   outline: none;
-  border: 1px solid #ffff00;
+  border: 1px solid #52cdff;
 }
 .form__input:focus + .form__icon {
-  fill: #ffff00;
+  fill: #52cdff;
 }
 .form__comment {
   display: -webkit-box;
@@ -565,7 +597,7 @@ input {
 }
 .form__textarea:focus {
   outline: none;
-  border: 1px solid var(--accent-color);
+  border: 1px solid #808080;
 }
 .form__button {
   display: block;
@@ -577,8 +609,8 @@ input {
   font-size: 16px;
   line-height: 1.88;
   letter-spacing: 0.06em;
-  color: var(--white-color);
-  background-color: #ffff00;
+  color: #ffffff;
+  background-color: #ffa500;
   -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
           box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border: none;
@@ -592,7 +624,7 @@ input {
           transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .form__button:hover, .form__button:focus {
-  background: var(--button-active-blue);
+  background: #dd1a1a;
   -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
           box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }/*# sourceMappingURL=main.css.map */
