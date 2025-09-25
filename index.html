@@ -13,7 +13,11 @@
     <!-- Header -->
     <header class="header">
       <div class="header__container">
-        <img class="logo" src="./images/header/logo.webp" alt="Логотип группы" />
+        <img
+          class="logo"
+          src="./images/header/logo.webp"
+          alt="Логотип группы"
+        />
         <nav class="header__menu">
           <div class="menu__body">
             <ul class="menu__list">
@@ -32,12 +36,104 @@
             </ul>
           </div>
         </nav>
-        <button class="icon-menu" type="button" aria-label="Открыть меню">
+        <button class="icon-menu" type="button" aria-label="Відкрити меню">
           <span></span>
         </button>
       </div>
     </header>
+    <main>
+      <!-- Hero -->
+      <section class="hero">
+        <div class="hero__container">
+          <img
+            class="hero__image"
+            src="./images/hero/hero.webp"
+            alt="Концерт гурту Грим та Грім"
+          />
+          <h1 class="hero__title">Гурт «Грим та Грім»</h1>
+          <p class="hero__subtitle">
+            Справжній український рок, який гуркоче в серці
+          </p>
+          <p class="hero__text">
+            «Грим та Грім» - це поєднання <span>потужних</span> гітарних рифів,
+            чесних текстів і вибухової єнергії сцени. Ми граємо для тих, хто
+            цінує живий звук, свободу та силу музики.
+          </p>
+          <p class="hero__text">
+            <span>Наші концерти</span> - це завжди контакт с залом,драйв і
+            емщції. Приєднуйся до нас на найближчих виступах і відчуй цей саунд
+            наживо!
+          </p>
+        </div>
+        <button class="hero__button" type="button" data-modal-open>
+          Замовити квиток
+        </button>
+      </section>
+    </main>
 
+    <!-- Modal window -->
+    <div class="backdrop backdrop--hidden" data-modal>
+      <div class="modal">
+        <button
+          class="close"
+          aria-label="Кнопка закриття модального вікна"
+          data-modal-close
+        >
+          <svg class="close__icon">
+            <use href="./images/icon.svg#icon-close-btn"></use>
+          </svg>
+        </button>
+
+        <form class="form">
+          <b class="form__title">Залиште свої дані, ми вам передзвонимо</b>
+          <div class="form__field">
+            <label for="name" class="form__label">Ім'я та прізвище</label>
+            <input class="form__input" type="text" name="user-name" id="name" />
+            <svg class="form__icon">
+              <use href="./images/icon.svg#icon-user"></use>
+            </svg>
+          </div>
+          <div class="form__field">
+            <label for="tel" class="form__label">Телефон</label>
+            <input
+              class="form__input"
+              type="tel"
+              name="user-tel"
+              id="tel"
+              autocomplete="off"
+            />
+            <svg class="form__icon">
+              <use href="./images/icon.svg#icon-phone"></use>
+            </svg>
+          </div>
+          <div class="form__field">
+            <label for="email" class="form__label">Пошта</label>
+            <input
+              class="form__input"
+              type="email"
+              name="user-email"
+              id="email"
+            />
+            <svg class="form__icon">
+              <use href="./images/icon.svg#icon-email"></use>
+            </svg>
+          </div>
+          <div class="form__comment">
+            <label for="comment" class="form__label">Коментар</label>
+            <textarea
+              class="form__textarea"
+              name="comment"
+              id="comment"
+              rows="10"
+              placeholder="Введіть текст"
+            ></textarea>
+          </div>
+          <button type="submit" class="form__button">Відправити</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="./js/script.js"></script>
     <script src="./js/script.js"></script>
   </body>
 </html>
