@@ -837,6 +837,25 @@ figcaption {
   margin-bottom: 24px;
 }
 
+.contacts__box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 30px;
+}
+@media (min-width: 1000px) {
+  .contacts__box {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+
 .contacts__form {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -845,6 +864,7 @@ figcaption {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  width: 100%;
   gap: 18px;
 }
 
@@ -886,6 +906,7 @@ figcaption {
   width: 100%;
   height: 120px;
   padding: 12px 16px;
+  color: #ffffff;
   background-color: #2b3032;
   border: 1px solid rgba(33, 33, 33, 0.3);
   border-radius: 4px;
@@ -920,4 +941,24 @@ figcaption {
   background-color: rgb(235.3684210526, 88.1315789474, 88.1315789474);
   -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
           box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+}
+
+.contacts__map {
+  width: 100%;
+  height: 10%;
+  background-color: #2b3032;
+  padding: 20px 10px;
+  border-radius: 6px;
+}
+
+.contacts__map-title {
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+iframe {
+  width: 100%;
+  height: 400px;
+  display: block;
+  margin: 0 auto;
 }/*# sourceMappingURL=main.css.map */
