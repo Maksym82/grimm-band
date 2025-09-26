@@ -400,6 +400,7 @@ input {
 .hero__button:hover, .hero__button:focus {
   background-color: rgb(249, 232, 84);
   color: #a52a2a;
+  color: #232227;
 }
 
 .backdrop {
@@ -694,6 +695,8 @@ figcaption {
 
 .history {
   padding: 50px 0;
+  background: -webkit-gradient(linear, left top, right top, from(#19181b), to(#251313));
+  background: linear-gradient(90deg, #19181b, #251313);
 }
 
 .history__title {
