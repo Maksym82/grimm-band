@@ -394,6 +394,12 @@ input {
   border-radius: 4px;
   cursor: pointer;
   font-size: 14px;
+  -webkit-transition: background-color, color 0.25s linear;
+  transition: background-color, color 0.25s linear;
+}
+.hero__button:hover, .hero__button:focus {
+  background-color: rgb(249, 232, 84);
+  color: #a52a2a;
 }
 
 .backdrop {

@@ -70,4 +70,11 @@
   border-radius: 4px;
   cursor: pointer;
   font-size: 14px;
+  transition: background-color, color 0.25s linear;
+
+  &:hover,
+  &:focus {
+    background-color: $colorLemon;
+    color: $colorBrown;
+  }
 }
