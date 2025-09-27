@@ -1161,7 +1161,6 @@ iframe {
   .events-table td::before {
     content: attr(data-label);
     font-weight: bold;
-    color: #ffcc00;
     display: block;
     margin-bottom: 4px;
   }
