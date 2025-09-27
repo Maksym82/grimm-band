@@ -995,7 +995,7 @@ iframe {
 .footer__rights {
   font-size: 14px;
   margin-bottom: 32px;
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
 .address__list {
@@ -1035,9 +1035,37 @@ iframe {
   gap: 12px;
 }
 
+.soc__item {
+  position: relative;
+}
+
+.soc__item:nth-child(2)::before {
+  position: absolute;
+  top: 14px;
+  left: -8px;
+  content: "";
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #ffffff;
+  opacity: 0.7;
+}
+
+.soc__item:nth-child(2)::after {
+  position: absolute;
+  top: 14px;
+  right: -8px;
+  content: "";
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #ffffff;
+  opacity: 0.7;
+}
+
 .soc__link {
   font-size: 16px;
-  opacity: 0.8;
+  opacity: 0.7;
   -webkit-transition: color 0.25s linear;
   transition: color 0.25s linear;
 }
