@@ -46,18 +46,18 @@
 }
 
 .order-btn {
-  background-color: #ffcc00;
-  color: #000;
+  background-color: $colorRed;
+  color: $colorWhite;
   border: none;
   padding: 8px 12px;
   cursor: pointer;
   font-weight: bold;
   border-radius: 4px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.25s linear;
 }
 
 .order-btn:hover {
-  background-color: #e6b800;
+  background-color: lighten($colorRed, 20%);
 }
 
 @media (max-width: 600px) {
