@@ -156,35 +156,39 @@
           <div class="contacts__box">
             <form class="contacts__form">
               <div class="contacts__form-field">
-                <label for="name" class="contacts__form-label">Ім'я</label>
+                <label for="contacts-name" class="contacts__form-label"
+                  >Ім'я</label
+                >
                 <input
                   class="contacts__form-input"
                   type="text"
                   name="user-name"
-                  id="name"
+                  id="contacts-name"
                   autocomplete="on"
                   required
                 />
               </div>
               <div class="contacts__form-field">
-                <label for="email" class="contacts__form-label">Пошта</label>
+                <label for="contacts-email" class="contacts__form-label"
+                  >Пошта</label
+                >
                 <input
                   class="contacts__form-input"
                   type="email"
                   name="user-email"
-                  id="email"
+                  id="contacts-email"
                   autocomplete="on"
                   required
                 />
               </div>
               <div class="form__comment">
-                <label for="comment" class="contacts__form-label"
+                <label for="text-comment" class="contacts__form-label"
                   >Повідомлення</label
                 >
                 <textarea
                   class="contacts__form-textarea"
                   name="comment"
-                  id="comment"
+                  id="text-comment"
                   rows="10"
                   placeholder="Розкажи про свої ідеї..."
                 ></textarea>
@@ -209,6 +213,53 @@
         </div>
       </section>
     </main>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer__container">
+        <div class="footer__address">
+          <p class="footer__rights">
+            &copy; 2025 «Грим та Грім». Всі права захищені
+          </p>
+          <address>
+            <ul class="address__list">
+              <li>
+                <a class="address__link" href="mailto:booking@lotoplay"
+                  >booking@lotoplay</a
+                >
+              </li>
+              <li>
+                <a class="address__link" href="tel:+380991234567"
+                  >+38 (099) 123-45-67</a
+                >
+              </li>
+            </ul>
+          </address>
+        </div>
+        <ul class="soc__list">
+          <li>
+            <a
+              class="soc__link"
+              href="https://www.instagram.com/"
+              target="_blank"
+              >Instagram</a
+            >
+          </li>
+          <li>
+            <a class="soc__link" href="https://www.youtube.com/" target="_blank"
+              >Youtube</a
+            >
+          </li>
+          <li>
+            <a
+              class="soc__link"
+              href="https://www.facebook.com/"
+              target="_blank"
+              >Facebook</a
+            >
+          </li>
+        </ul>
+      </div>
+    </footer>
 
     <!-- Modal window -->
     <div class="backdrop backdrop--hidden" data-modal>

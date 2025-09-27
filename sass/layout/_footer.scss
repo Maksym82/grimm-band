@@ -1,0 +1,57 @@
+@use "../utils/variables" as *;
+
+.footer {
+  padding: 50px 0;
+}
+
+@media (min-width: 1000px) {
+  .footer__container {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+}
+
+.footer__rights {
+  font-size: 14px;
+  margin-bottom: 32px;
+  opacity: 0.8;
+}
+
+.address__list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+
+  @media (min-width: 1000px) {
+    flex-direction: row;
+  }
+}
+
+.address__link {
+  font-size: 16px;
+  font-style: normal;
+  transition: color 0.25s linear;
+
+  &:hover,
+  &:focus {
+    color: $colorOrange;
+  }
+}
+
+.soc__list {
+  display: flex;
+  gap: 12px;
+}
+
+.soc__link {
+  font-size: 16px;
+  opacity: 0.8;
+  transition: color 0.25s linear;
+
+  &:hover,
+  &:focus {
+    color: $colorOrange;
+  }
+}
