@@ -64,18 +64,17 @@
   width: 170px;
   height: 40px;
   font-weight: 500;
-  background-color: $colorOrange;
+  background-color: #FFD929;
   text-transform: uppercase;
-  color: $colorWhite;
+  color: $colorBlack;
   border-radius: 4px;
   cursor: pointer;
   font-size: 14px;
-  transition: background-color, color 0.25s linear;
+  transition: background-color 0.25s linear;
 
   &:hover,
   &:focus {
-    background-color: $colorLemon;
-    color: $colorBrown;
-    color: #232227;
+    background-color: #FFFFEB;
+    color: $colorBlack;
   }
 }

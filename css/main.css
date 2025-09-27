@@ -453,19 +453,18 @@ input {
   width: 170px;
   height: 40px;
   font-weight: 500;
-  background-color: #ffa500;
+  background-color: #FFD929;
   text-transform: uppercase;
-  color: #ffffff;
+  color: #000000;
   border-radius: 4px;
   cursor: pointer;
   font-size: 14px;
-  -webkit-transition: background-color, color 0.25s linear;
-  transition: background-color, color 0.25s linear;
+  -webkit-transition: background-color 0.25s linear;
+  transition: background-color 0.25s linear;
 }
 .hero__button:hover, .hero__button:focus {
-  background-color: rgb(249, 232, 84);
-  color: #a52a2a;
-  color: #232227;
+  background-color: #FFFFEB;
+  color: #000000;
 }
 
 .backdrop {
