@@ -2,6 +2,8 @@
 
 .concerts {
   padding: 50px 0;
+  min-height: clamp(220px, 40vh, 320px);
+
 }
 
 .events-table {
