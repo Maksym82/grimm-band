@@ -227,7 +227,10 @@ input {
   min-height: 58px;
 }
 
-.logo {
+.logo__link {
+  width: 100px;
+  height: 40px;
+  fill: #ffffff;
   z-index: 2;
 }
 

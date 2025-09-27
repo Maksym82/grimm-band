@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Grimm band</title>
+    <meta
+      name="description"
+      content="Офіційний сайт гурту: дізнайтесь про найближчі концерти, замовте виступ або зв'яжіться з нами для співпраці."
+    />
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="./images/favicon.ico" />
     <!-- Styles -->
@@ -13,11 +17,27 @@
     <!-- Header -->
     <header class="header">
       <div class="header__container">
-        <img
-          class="logo"
-          src="./images/header/logo.webp"
-          alt="Логотип группы"
-        />
+        <a class="logo__link" href="./index.html">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="80"
+            height="50"
+            viewBox="0 0 200 100"
+          >
+            <rect width="100%" height="100%" fill="none" />
+            <text
+              x="50%"
+              y="50%"
+              dominant-baseline="middle"
+              text-anchor="middle"
+              font-family="Arial, sans-serif"
+              font-size="48"
+              fill="white"
+            >
+              G&amp;G
+            </text>
+          </svg>
+        </a>
         <nav class="header__menu">
           <div class="menu__body">
             <ul class="menu__list">
@@ -398,7 +418,8 @@
     <div class="popup" id="thank-you-popup">
       <div class="popup__content">
         <p class="popup__message">
-          Дякуємо за звернення! <br> Ми скоро зв'яжемося з вами.
+          Дякуємо за звернення! <br />
+          Ми скоро зв'яжемося з вами.
         </p>
         <button class="popup__close" id="popup-close">Закрити</button>
       </div>
