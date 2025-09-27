@@ -39,7 +39,7 @@
 
 .menu__link:hover,
 .menu__link:focus {
-  color: $colorRed;
+  color: $colorOrange;
 }
 
 .menu__link::after {
@@ -50,7 +50,7 @@
   display: block;
   margin-top: 5px;
   right: 0;
-  background: $colorRed;
+  background: $colorOrange;
   transition: width 0.3s ease;
   -webkit-transition: width 0.6s ease;
 }
