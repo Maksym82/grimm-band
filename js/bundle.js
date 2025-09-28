@@ -27,10 +27,13 @@ function unlockScroll() {
     modalBackdrop: document.querySelector("[data-modal]"),
   };
 
+  let formSubmitted = false;
+
   refs.openModalBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
       refs.modalBackdrop.classList.remove("backdrop--hidden");
       lockScroll();
+      formSubmitted = false; // сбрасываем при открытии
     });
   });
 
@@ -46,8 +49,17 @@ function unlockScroll() {
 
   function closeModal() {
     refs.modalBackdrop.classList.add("backdrop--hidden");
-    // НЕ вызываем unlockScroll — скролл остаётся заблокирован, если будет попап
+
+    // Если форма не была отправлена — разблокируем скролл
+    if (!formSubmitted) unlockScroll();
+
+    formSubmitted = false; // сбрасываем на всякий случай
   }
+
+  // Экспорт флага для блока формы
+  window.__modalFormSubmitted = {
+    set: () => (formSubmitted = true),
+  };
 })();
 
 // === Попап после формы ===
@@ -60,11 +72,12 @@ function unlockScroll() {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
 
+      window.__modalFormSubmitted.set(); // отмечаем, что форма была отправлена
+
       const modal = form.closest("[data-modal]");
       if (modal) {
         modal.classList.add("backdrop--hidden");
 
-        // НЕ отпускаем скролл — попап появится через 300ms
         setTimeout(() => {
           popup.classList.add("popup--visible");
           // lockScroll уже активен, не вызываем повторно
