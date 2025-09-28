@@ -1,37 +1,52 @@
 "use strict";
 
+// === Утилиты для скролла ===
+let scrollLocked = false;
+
+function lockScroll() {
+  if (scrollLocked) return;
+  const scrollbarWidth =
+    window.innerWidth - document.documentElement.clientWidth;
+  document.body.style.paddingRight = `${scrollbarWidth}px`;
+  document.body.classList.add("body--no-scroll");
+  scrollLocked = true;
+}
+
+function unlockScroll() {
+  if (!scrollLocked) return;
+  document.body.classList.remove("body--no-scroll");
+  document.body.style.paddingRight = "";
+  scrollLocked = false;
+}
+
+// === Модалка ===
 (() => {
   const refs = {
     openModalBtns: document.querySelectorAll("[data-modal-open]"),
     closeModalBtn: document.querySelector("[data-modal-close]"),
     modalBackdrop: document.querySelector("[data-modal]"),
-    body: document.body,
   };
 
-  // Открытие модалки
   refs.openModalBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
       refs.modalBackdrop.classList.remove("backdrop--hidden");
-      refs.body.classList.add("body--no-scroll");
+      lockScroll();
     });
   });
 
-  // Закрытие по кнопке
   refs.closeModalBtn.addEventListener("click", closeModal);
 
-  // Закрытие по клику вне модалки
   refs.modalBackdrop.addEventListener("click", (e) => {
     if (e.target === refs.modalBackdrop) closeModal();
   });
 
-  // Закрытие по Esc
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeModal();
   });
 
   function closeModal() {
     refs.modalBackdrop.classList.add("backdrop--hidden");
-    refs.body.classList.remove("body--no-scroll");
+    // НЕ вызываем unlockScroll — скролл остаётся заблокирован, если будет попап
   }
 })();
 
@@ -39,33 +54,28 @@
 (() => {
   const popup = document.getElementById("thank-you-popup");
   const popupCloseBtn = document.getElementById("popup-close");
-  const body = document.body;
   let popupTimer;
 
   document.querySelectorAll("form").forEach((form) => {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
 
-      // Закрываем модалку, если форма внутри неё
       const modal = form.closest("[data-modal]");
       if (modal) {
         modal.classList.add("backdrop--hidden");
-        body.classList.remove("body--no-scroll");
 
-        // Показываем попап с задержкой после анимации модалки
+        // НЕ отпускаем скролл — попап появится через 300ms
         setTimeout(() => {
           popup.classList.add("popup--visible");
-          body.classList.add("body--no-scroll");
-        }, 300); // задержка в миллисекундах
+          // lockScroll уже активен, не вызываем повторно
+        }, 300);
       } else {
-        // Если форма вне модалки — показываем попап сразу
         popup.classList.add("popup--visible");
-        body.classList.add("body--no-scroll");
+        lockScroll();
       }
 
       form.reset();
 
-      // Автоматическое скрытие попапа через 5 секунд
       clearTimeout(popupTimer);
       popupTimer = setTimeout(closePopup, 5000);
     });
@@ -78,11 +88,11 @@
 
   function closePopup() {
     popup.classList.remove("popup--visible");
-    body.classList.remove("body--no-scroll");
+    unlockScroll();
   }
 })();
 
-// === Переключение мобильного меню ===
+// === Мобильное меню ===
 document.addEventListener("click", (e) => {
   const targetItem = e.target;
   if (targetItem.closest(".icon-menu") || targetItem.closest(".menu__link")) {
