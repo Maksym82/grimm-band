@@ -1,37 +1,74 @@
 "use strict";
 
-// === Модальное окно ===
 (() => {
   const refs = {
     openModalBtns: document.querySelectorAll("[data-modal-open]"),
     closeModalBtn: document.querySelector("[data-modal-close]"),
-    modal: document.querySelector("[data-modal]"),
+    modalBackdrop: document.querySelector("[data-modal]"),
+    body: document.body,
   };
 
+  // Открытие модалки
   refs.openModalBtns.forEach((btn) => {
-    btn.addEventListener("click", toggleModal);
+    btn.addEventListener("click", () => {
+      refs.modalBackdrop.classList.remove("backdrop--hidden");
+      refs.body.classList.add("body--no-scroll");
+    });
   });
 
-  refs.closeModalBtn.addEventListener("click", toggleModal);
+  // Закрытие по кнопке
+  refs.closeModalBtn.addEventListener("click", closeModal);
 
-  function toggleModal() {
-    refs.modal.classList.toggle("backdrop--hidden");
+  // Закрытие по клику вне модалки
+  refs.modalBackdrop.addEventListener("click", (e) => {
+    if (e.target === refs.modalBackdrop) closeModal();
+  });
+
+  // Закрытие по Esc
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeModal();
+  });
+
+  function closeModal() {
+    refs.modalBackdrop.classList.add("backdrop--hidden");
+    refs.body.classList.remove("body--no-scroll");
   }
 })();
 
 // === Попап после формы ===
 (() => {
-  const form = document.querySelector(".contacts__form");
   const popup = document.getElementById("thank-you-popup");
   const popupCloseBtn = document.getElementById("popup-close");
   const body = document.body;
+  let popupTimer;
 
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
+  document.querySelectorAll("form").forEach((form) => {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
 
-    popup.classList.add("popup--visible");
-    body.classList.add("body--no-scroll");
-    form.reset();
+      // Закрываем модалку, если форма внутри неё
+      const modal = form.closest("[data-modal]");
+      if (modal) {
+        modal.classList.add("backdrop--hidden");
+        body.classList.remove("body--no-scroll");
+
+        // Показываем попап с задержкой после анимации модалки
+        setTimeout(() => {
+          popup.classList.add("popup--visible");
+          body.classList.add("body--no-scroll");
+        }, 300); // задержка в миллисекундах
+      } else {
+        // Если форма вне модалки — показываем попап сразу
+        popup.classList.add("popup--visible");
+        body.classList.add("body--no-scroll");
+      }
+
+      form.reset();
+
+      // Автоматическое скрытие попапа через 5 секунд
+      clearTimeout(popupTimer);
+      popupTimer = setTimeout(closePopup, 5000);
+    });
   });
 
   popupCloseBtn.addEventListener("click", closePopup);
