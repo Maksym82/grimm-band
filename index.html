@@ -12,20 +12,6 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="./images/favicon.ico" />
     <!-- Preload -->
-    <link
-      rel="preload"
-      href="fonts/Montserrat-Regular.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-    <link
-      rel="preload"
-      href="fonts/Montserrat-Bold.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
     <link rel="preload" href="css/main.min.css" as="style" />
     <!-- Styles -->
     <link rel="stylesheet" href="./css/main.min.css" />
@@ -387,7 +373,7 @@
           </svg>
         </button>
 
-        <form class="form">
+        <form class="form" action="https://example.com/submit" method="GET">
           <b class="form__title">Залиште свої дані, ми вам передзвонимо</b>
           <div class="form__field">
             <label for="name" class="form__label">Ім'я та прізвище</label>
@@ -396,6 +382,7 @@
               type="text"
               name="user-name"
               id="name"
+              placeholder="Василь Козак"
               autocomplete="on"
               required
             />
@@ -410,6 +397,10 @@
               type="tel"
               name="user-tel"
               id="tel"
+              pattern="[\+]\d{2}\[\(]\d{3}[\)]\\d{3}[\-]\d{2}[\-]\d{2}"
+              placeholder="+38(050)123-45-67"
+              minlength="13"
+              maxlength="17"
               autocomplete="off"
               required
             />
@@ -425,6 +416,7 @@
               name="user-email"
               id="email"
               autocomplete="on"
+              placeholder="Your email"
               required
             />
             <svg class="form__icon">

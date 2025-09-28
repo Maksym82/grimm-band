@@ -133,6 +133,10 @@
       outline: none;
       border: 1px solid $colorBlue;
     }
+
+    &::placeholder {
+      font-size: 12px;
+    }
   }
 
   &__icon {
